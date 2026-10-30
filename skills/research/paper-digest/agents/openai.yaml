@@ -1,0 +1,3 @@
+interface:
+  display_name: "Paper Digest"
+  short_description: "按模板把一篇论文写成中文论文分享笔记"

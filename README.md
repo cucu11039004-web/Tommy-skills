@@ -1,32 +1,42 @@
-# （项目名称）
+# Tommy-skills
 
-（一句话介绍项目做什么、面向谁。由你填写真实目标，AI 可以协助整理。）
+个人 Claude Code / Codex skill 集合，按 [mattpocock/skills](https://github.com/mattpocock/skills) 的目录结构组织，可用 skills.sh 一键安装与升级。
 
-## 背景与目标
+## Skill 清单
 
-（为什么做这个项目；希望解决什么问题；怎样算取得有价值的结果。持续更新为当前有效目标。）
+| Skill | 用途 | 触发方式 |
+|---|---|---|
+| [paper-digest](skills/research/paper-digest/SKILL.md) | 通读一篇论文，先问关注点与对比论文，再按固定模板写成中文「论文分享」笔记 | 给出 arXiv 链接或 PDF 并要求总结、分享、精读论文；或 `/paper-digest <链接>` |
 
-## 范围
+## 安装
 
-| 项目 | 内容 |
-|---|---|
-| 当前准备做 | （本阶段包含的功能或研究目标） |
-| 当前不做 | （明确排除的范围） |
-| 主要约束 | （影响范围和取舍的条件；具体机器与设备信息写入 AGENTS） |
+```bash
+npx skills@latest add cucu11039004-web/Tommy-skills
+```
 
-## 当前成果
+Codex 加 `-a codex`，不加 `-a` 则交互选择目标智能体。Skill 会装到 `~/.agents/skills/<skill 名>/`，与 mattpocock 的 skill 同目录；Claude Code 读取的 `~/.claude/skills` 是 CLI 第一次安装时自动建立的指向 `~/.agents/skills` 的软链，无需手动处理。
 
-（目前已经能做什么。尚未实现时如实说明，不把预期功能写成已有能力；任务级进度保存在 PLAN 或已采用的任务工具中。）
+## 升级
 
-## 运行与使用
+```bash
+npx skills@latest update
+```
 
-（有可运行成果后补齐：依赖、安装、启动方式、最小使用示例和验证命令。尚未明确时标记“待补充”，不要填入未经验证的命令。）
+仓库里新增了 skill 时，重新执行一次安装命令即可拉取。
+
+## 目录结构
+
+```
+skills/
+  <分类>/
+    <skill 名>/
+      SKILL.md          # 流程与规则
+      references/       # 模板、范例等按需加载的参考
+      agents/openai.yaml # Codex 列表里的显示名
+```
 
 ## 文档入口
 
 | 文档 | 用途 |
 |---|---|
-| [AGENTS.md](AGENTS.md) | 工作环境、资源、协作与 Git 提交约定 |
-| [CODEBASE_MAP.md](CODEBASE_MAP.md) | 目录结构与各部分职责，定位改动区域 |
-
-（开始具体任务并创建 PLAN.md 时，在此补上入口。纯文档项目不用 CODEBASE_MAP 时删掉该行；只有采用 TODO、GLOSSARY 或 docs 中的文档时才增加对应链接；完成填写后删除本提示。）
+| [AGENTS.md](AGENTS.md) | 协作与 Git 提交约定 |
