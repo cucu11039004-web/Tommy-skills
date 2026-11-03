@@ -38,7 +38,7 @@ description: 通读一篇论文，按固定模板写成中文「论文分享」�
 
 - `<方法简称>.md`：笔记。
 - `<方法简称>.pdf`：论文原文。输入是本地 PDF 就复制过来；输入是 arXiv 链接就从 `https://arxiv.org/pdf/<id>` 下载。
-- `assets/fig1.png` 放 Figure 1，`assets/arch.png` 放架构图，架构图按内容判断，通常是 Figure 2。arXiv HTML 页面源码里 `<img src>` 给的是相对路径，拼在 `https://arxiv.org/html/<id>vN/` 后即可下载；本地 PDF 则从 PDF 中抽取嵌入图片，按所在页与图注对应。拿不到的图在原位写「见原文 Figure N」，不放占位图。
+- `assets/fig1.png` 放 Figure 1，`assets/arch.png` 放架构图，架构图按内容判断，通常是 Figure 2。两张图都从 PDF 页面按区域裁剪，裁剪框向下延伸把原文图注完整包进去，笔记里不另写图注。拿不到的图在原位写「见原文 Figure N」，不放占位图。
 - `assets/table_main.png` 放主指标表、`assets/table_ablation.png` 放消融表，从 PDF 对应页面按表格区域裁剪，含表标题和表注。截图的像素宽度跟着表在页面上的物理宽度走：单栏表约 1000 px，通栏表约 1800 px，几行几列的小表约 700 px，这样贴进文档时小表不会撑满一行。笔记里的指标数据只以截图呈现，不手工重建表格。
 
 笔记里用相对路径 `assets/…` 引用图片。
@@ -55,7 +55,7 @@ description: 通读一篇论文，按固定模板写成中文「论文分享」�
 ### 写法
 
 - 标题用 Markdown 层级：文档名 `#`，各节 `##`，节内小标题 `####`。正文首次出现的模块名、指标名、方法名加粗。
-- 图片带图注：图下一行斜体「*Figure N：中文概括*」。Figure 1 用 `<img src="assets/fig1.png" width="600">` 缩小，架构图用普通 Markdown 图片语法不缩；表格截图自带表题不加注。
+- 图和表都连同原文的图注、表题一起裁进截图，笔记里不另写图注。Figure 1 用 `<img src="assets/fig1.png" width="600">` 缩小显示，架构图用普通 Markdown 图片语法不缩。
 - 整体架构的流程用 Mermaid `flowchart LR` 画成从左到右的框图，一个模块一个框，不写成一行箭头。
 
 - 数学符号、公式、变量一律用 LaTeX：行内 `$\alpha_i$`，独立公式 `$$…$$`。不用纯文本写上标下标。
