@@ -6,7 +6,7 @@
 
 | Skill | 用途 | 触发方式 |
 |---|---|---|
-| [paper-digest](skills/research/paper-digest/SKILL.md) | 通读一篇论文，先问关注点与对比论文，再按固定模板写成中文「论文分享」笔记 | 给出 arXiv 链接或 PDF 并要求总结、分享、精读论文；或 `/paper-digest <链接>` |
+| [paper-digest](skills/research/paper-digest/SKILL.md) | 通读一篇论文或技术博客，先问关注点与对比论文，再按固定模板写成中文「论文分享」笔记；网页里的 GIF 动图原样保留 | 给出本地 PDF、arXiv 链接或网页链接并要求总结、分享、精读；或 `/paper-digest <链接或路径>` |
 
 ## 安装
 
