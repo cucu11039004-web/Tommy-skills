@@ -14,21 +14,19 @@
 |---|---|---|
 | [Chat](copilot/agents/Chat.agent.md) | 简单问题直接回答，按需查公开网页，不读项目上下文 | VS Code Chat 视图，Session Target 选 Copilot，再在 Agent 下拉中选 Chat |
 
-## 安装
+## 安装与更新 skill
+
+安装和更新是同一条命令：
 
 ```bash
-npx skills@latest add cucu11039004-web/Tommy-skills
+npx skills@latest add cucu11039004-web/Tommy-skills -g -a claude-code -a codex -a github-copilot -y
 ```
 
-Codex 加 `-a codex`，不加 `-a` 则交互选择目标智能体。Skill 会装到 `~/.agents/skills/<skill 名>/`，与 mattpocock 的 skill 同目录；Claude Code 读取的 `~/.claude/skills` 是 CLI 第一次安装时自动建立的指向 `~/.agents/skills` 的软链，无需手动处理。
-
-## 升级
-
-```bash
-npx skills@latest update
-```
-
-仓库里新增了 skill 时，重新执行一次安装命令即可拉取。
+- `-y` 会装上本仓库的全部 skill：已装的覆盖为最新版，新加的一并装上，不影响 mattpocock 等其他来源的 skill。
+- Skill 实际装在 `~/.agents/skills/<skill 名>/`，CLI 按 `-a` 在各客户端目录建链接：Claude Code 是 `~/.claude/skills/`，Copilot 是 `~/.copilot/skills/`，Codex 直接读 `~/.agents/skills/`。新电脑上第一次安装就会自动建好，不用手动建软链。
+- 如果 `~/.claude/skills` 已经整个链到 `~/.agents/skills`，CLI 会识别出是同一位置并跳过，可以照常使用这条命令。
+- 只更新其中一个时用 `npx skills@latest update <skill 名> -g`。不要用不带名字的 `npx skills update`，它会把所有来源的 skill 一起更新。
+- 本仓库删掉的 skill 不会随重装被删，需要手动执行 `npx skills@latest remove <skill 名> -g`。
 
 ## 安装与更新 agent
 

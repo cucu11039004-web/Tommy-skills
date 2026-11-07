@@ -8,7 +8,7 @@
 |---|---|
 | 执行位置 | 本机（macOS），工作目录为仓库根目录 |
 | 运行环境 | 纯 Markdown 仓库，无虚拟环境、无构建步骤 |
-| 验证方式 | 推送后用 `npx skills@latest add cucu11039004-web/Tommy-skills` 安装，确认 `~/.claude/skills/<skill 名>` 出现；再在真实任务上试跑该 skill |
+| 验证方式 | Skill：推送后用 README「安装与更新 skill」的命令安装，确认 `~/.claude/skills/<skill 名>` 出现，再在真实任务上试跑；Agent：确认 VS Code Copilot 模式的 Agent 下拉中出现它，再试问一个典型问题 |
 
 ## 协作约定
 
