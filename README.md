@@ -16,16 +16,16 @@
 
 ## 安装与更新 skill
 
-安装和更新是同一条命令：
+安装和更新是同一条命令，作用范围是本仓库的全部 skill：
 
 ```bash
 npx skills@latest add cucu11039004-web/Tommy-skills -g -a claude-code -a codex -a github-copilot -y
 ```
 
-- `-y` 会装上本仓库的全部 skill：已装的覆盖为最新版，新加的一并装上，不影响 mattpocock 等其他来源的 skill。
-- Skill 实际装在 `~/.agents/skills/<skill 名>/`，CLI 按 `-a` 在各客户端目录建链接：Claude Code 是 `~/.claude/skills/`，Copilot 是 `~/.copilot/skills/`，Codex 直接读 `~/.agents/skills/`。新电脑上第一次安装就会自动建好，不用手动建软链。
-- 如果 `~/.claude/skills` 已经整个链到 `~/.agents/skills`，CLI 会识别出是同一位置并跳过，可以照常使用这条命令。
-- 只更新其中一个时用 `npx skills@latest update <skill 名> -g`。不要用不带名字的 `npx skills update`，它会把所有来源的 skill 一起更新。
+- 这条命令只克隆本仓库：已装的 skill 覆盖为最新版，仓库新加的一并装上，不会碰 mattpocock 等其他来源的 skill。
+- `-y` 跳过交互选择，默认选中本仓库的全部 skill。
+- Skill 实际装在 `~/.agents/skills/<skill 名>/`，CLI 按 `-a` 在各客户端目录建链接：Claude Code 是 `~/.claude/skills/`，Copilot 是 `~/.copilot/skills/`，Codex 直接读 `~/.agents/skills/`。新电脑上第一次安装就会自动建好，不用手动建软链；如果 `~/.claude/skills` 已经整个链到 `~/.agents/skills`，CLI 会识别出是同一位置并跳过。
+- 不要用不带名字的 `npx skills update`，它会把 mattpocock 等所有来源的 skill 一起更新。
 - 本仓库删掉的 skill 不会随重装被删，需要手动执行 `npx skills@latest remove <skill 名> -g`。
 
 ## 安装与更新 agent
