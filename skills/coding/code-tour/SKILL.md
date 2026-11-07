@@ -1,5 +1,5 @@
 ---
-name: code-walkthrough
+name: code-tour
 description: 讲解 vibe coding 刚生成的一批代码：先给改动总览，再按需逐个文件讲职责、结构、新增部分和联动。
 disable-model-invocation: true
 ---

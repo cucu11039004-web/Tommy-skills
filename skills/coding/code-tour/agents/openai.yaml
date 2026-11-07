@@ -1,5 +1,5 @@
 interface:
-  display_name: "Code Walkthrough"
+  display_name: "代码讲解"
   short_description: "讲解 vibe coding 刚生成的一批代码"
 policy:
   allow_implicit_invocation: false
