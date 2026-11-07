@@ -1,6 +1,6 @@
 # Tommy-skills — 工作环境与协作约定
 
-本文件记录智能体在本仓库工作所需的事实与约定。项目目标、skill 清单与安装方式见 [README.md](README.md)。
+本文件记录智能体在本仓库工作所需的事实与约定。项目目标、skill 与 agent 清单、安装方式见 [README.md](README.md)。
 
 ## 工作环境
 
@@ -16,6 +16,7 @@
 - 写 skill 时遵循 `writing-for-agents` skill 的规范：步骤有完成标准，只有部分分支需要的内容下放到 `references/`，不写智能体默认就会做的话。
 - Skill 内容不写死某个智能体的工具名，保证在 Claude Code 与 Codex 下都能跑。
 - 新增或删除 skill 时同步更新 README 的 skill 清单。
+- VS Code Copilot 模式的自定义 agent 放在 `copilot/agents/<名称>.agent.md`，frontmatter 写 `target: github-copilot`，tools 用 Copilot 的工具别名（如 `read`、`search`、`web`）。agent 只服务 Copilot，不受「Skill 内容不写死工具名」那条的限制；新增或删除时同步更新 README 的 agent 清单。
 - 项目目标与范围由用户决定；需要改变目标或关键取舍时先说明问题，交由用户决定。
 
 ## Git 提交约定
