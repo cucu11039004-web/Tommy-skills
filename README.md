@@ -8,6 +8,7 @@
 |---|---|---|
 | [paper-digest](skills/research/paper-digest/SKILL.md) | 通读一篇论文或技术博客，先问关注点与对比论文，再按固定模板写成中文「论文分享」笔记；网页里的 GIF 动图原样保留 | 给出本地 PDF、arXiv 链接或网页链接并要求总结、分享、精读；或 `/paper-digest <链接或路径>` |
 | [code-tour](skills/coding/code-tour/SKILL.md) | vibe coding 完成一次功能升级后，先给这批改动的总览，再按需逐个文件讲职责、结构、新增部分和联动；默认不跑代码 | 仅手动：`/code-tour [文件]`（Codex 用 `$code-tour`）；不带文件时讲最近一批改动 |
+| [writing-for-humans](skills/writing/writing-for-humans/SKILL.md) | 写给人读的文档（README、笔记、说明、CODEBASE_MAP 等）：只写读者会用到的，信息不丢、字数最少、结构清楚；给智能体读的文件用 mattpocock 的 writing-for-agents | 新写或修改这类文档时自动触发；或 `/writing-for-humans` |
 
 ## 外部 skill
 

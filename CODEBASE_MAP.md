@@ -9,6 +9,7 @@ Tommy-skills 收录我的个人 AI 配置，面向我自己：包括通用 skill
 - `skills/`：通用 skill，Claude Code / Codex / Copilot 都能用，随一键安装分发
   - `research/paper-digest/`：把论文或技术博客写成中文「论文分享」笔记
   - `coding/code-tour/`：讲解 vibe coding 刚生成的一批代码
+  - `writing/writing-for-humans/`：写给人读的文档时的写作规则
 - `copilot/agents/`：VS Code Copilot 模式的自定义 agent
   - `Chat.agent.md`：简单问题直接回答，按需查公开网页
 - `feishu/skills/`：飞书（豆包）专用 skill，不随一键安装
