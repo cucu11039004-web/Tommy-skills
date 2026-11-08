@@ -9,6 +9,10 @@
 | [paper-digest](skills/research/paper-digest/SKILL.md) | 通读一篇论文或技术博客，先问关注点与对比论文，再按固定模板写成中文「论文分享」笔记；网页里的 GIF 动图原样保留 | 给出本地 PDF、arXiv 链接或网页链接并要求总结、分享、精读；或 `/paper-digest <链接或路径>` |
 | [code-tour](skills/coding/code-tour/SKILL.md) | vibe coding 完成一次功能升级后，先给这批改动的总览，再按需逐个文件讲职责、结构、新增部分和联动；默认不跑代码 | 仅手动：`/code-tour [文件]`（Codex 用 `$code-tour`）；不带文件时讲最近一批改动 |
 
+## 外部 skill
+
+除本仓库自己的 skill 外，全量安装 [mattpocock/skills](https://github.com/mattpocock/skills)（MIT）。这些 skill 不拷进本仓库，清单以上游为准。
+
 ## Agent 清单
 
 | Agent | 用途 | 使用位置 |
@@ -36,17 +40,26 @@
 
 ## 安装与更新 skill
 
-安装和更新是同一条命令，作用范围是本仓库的全部 skill：
+新电脑第一次安装，两条命令各装一个来源的全部 skill：
 
 ```bash
 npx skills@latest add cucu11039004-web/Tommy-skills -g -a claude-code -a codex -a github-copilot -y
 ```
 
-- 这条命令只克隆本仓库：已装的 skill 覆盖为最新版，仓库新加的一并装上，不会碰 mattpocock 等其他来源的 skill。
-- `-y` 跳过交互选择，默认选中本仓库的全部 skill。
+```bash
+npx skills@latest add mattpocock/skills -g -a claude-code -a codex -a github-copilot -y
+```
+
+日常更新，一条命令更新本机已装的全部 skill：
+
+```bash
+npx skills@latest update -g -y
+```
+
+- `update` 只更新已装的 skill：删掉的不会被装回来，两个来源新加的也不会自动装上。想拿到新加的 skill，就重跑对应来源的 `add` 命令。
+- 重跑 `add` 会把这个来源里删过的 skill 一并装回，所以平时更新用 `update`，不用 `add`。
+- 不想要的 skill 直接删：`npx skills@latest remove <skill 名> -g`。本仓库删掉的 skill 也不会随更新被删，同样要手动执行这条命令。
 - Skill 实际装在 `~/.agents/skills/<skill 名>/`，CLI 按 `-a` 在各客户端目录建链接：Claude Code 是 `~/.claude/skills/`，Copilot 是 `~/.copilot/skills/`，Codex 直接读 `~/.agents/skills/`。新电脑上第一次安装就会自动建好，不用手动建软链；如果 `~/.claude/skills` 已经整个链到 `~/.agents/skills`，CLI 会识别出是同一位置并跳过。
-- 不要用不带名字的 `npx skills update`，它会把 mattpocock 等所有来源的 skill 一起更新。
-- 本仓库删掉的 skill 不会随重装被删，需要手动执行 `npx skills@latest remove <skill 名> -g`。
 
 ## 安装与更新 agent
 
