@@ -87,3 +87,4 @@ feishu/
 | 文档 | 用途 |
 |---|---|
 | [AGENTS.md](AGENTS.md) | 协作与 Git 提交约定 |
+| [CODEBASE_MAP.md](CODEBASE_MAP.md) | 全局地图：目录结构与各部分职责 |

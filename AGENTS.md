@@ -19,6 +19,7 @@
 - VS Code Copilot 模式的自定义 agent 放在 `copilot/agents/<名称>.agent.md`，frontmatter 写 `target: github-copilot`，tools 用 Copilot 的工具别名（如 `read`、`search`、`web`）。agent 只服务 Copilot，不受「Skill 内容不写死工具名」那条的限制；新增或删除时同步更新 README 的 agent 清单。
 - 只在飞书（豆包）里用的 skill 放在 `feishu/skills/<skill 名>/SKILL.md`，作为工作流记录，可以写死 `lark-cli` 命令。不能放进 `skills/`，也不能写进 `skills.sh.json`，否则会被一键安装装到 Claude Code / Codex / Copilot。文档 ID、token、租户域名用 `<…>` 占位符代替。用户在飞书更新后发来新版时，覆盖该文件，同时保留占位符。新增或删除时同步更新 README 的「飞书专用 skill」清单。
 - 飞书（豆包）的定时任务放在 `feishu/automations/<任务名>.md`，文件名用飞书里的中文任务名，内容只记调度（cron 与时区）和提示词原文。用户从飞书复制新版发来时，覆盖对应文件，原文照抄，只把链接、域名、space_id、node、token 等换成 `<…>` 占位符。新增或删除时同步更新 README 的「飞书自动任务」清单。
+- 修改前先用 [CODEBASE_MAP.md](CODEBASE_MAP.md) 定位目录与职责；增删 skill、agent、飞书 skill 或飞书自动任务时同步更新它。
 - 项目目标与范围由用户决定；需要改变目标或关键取舍时先说明问题，交由用户决定。
 
 ## Git 提交约定
