@@ -74,6 +74,7 @@ ln -s ~/WorkSpace/Tommy-skills/copilot/agents ~/.copilot/agents
 - 已有克隆时跳过 `git clone`；克隆在别处时把路径换成实际位置。
 - `~/.copilot/agents` 已经是普通目录时，不要整个替换，改为逐个链接文件：`ln -s ~/WorkSpace/Tommy-skills/copilot/agents/Chat.agent.md ~/.copilot/agents/`。
 - 更新只需在克隆里 `git pull`；新加的 agent 通过目录链接自动生效。
+- 本地克隆就是 agent 的实际来源：删除或移动这个文件夹，`~/.copilot/agents` 的链接会断开，Agent 下拉里的 Chat 会消失。移动后要按新路径重新执行 `ln -s`。这一点和 skill 不同，skill 装好后在 `~/.agents/skills` 里是独立副本，不受克隆影响。
 - 安装后在 VS Code 的 Copilot 模式下打开 Agent 下拉，确认出现 Chat。
 
 ## 文档入口
