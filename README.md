@@ -56,10 +56,8 @@ npx skills@latest add mattpocock/skills -g -a claude-code -a codex -a github-cop
 npx skills@latest update -g -y
 ```
 
-- `update` 只更新已装的 skill：删掉的不会被装回来，两个来源新加的也不会自动装上。想拿到新加的 skill，就重跑对应来源的 `add` 命令。
-- 重跑 `add` 会把这个来源里删过的 skill 一并装回，所以平时更新用 `update`，不用 `add`。
-- 不想要的 skill 直接删：`npx skills@latest remove <skill 名> -g`。本仓库删掉的 skill 也不会随更新被删，同样要手动执行这条命令。
-- Skill 实际装在 `~/.agents/skills/<skill 名>/`，CLI 按 `-a` 在各客户端目录建链接：Claude Code 是 `~/.claude/skills/`，Copilot 是 `~/.copilot/skills/`，Codex 直接读 `~/.agents/skills/`。新电脑上第一次安装就会自动建好，不用手动建软链；如果 `~/.claude/skills` 已经整个链到 `~/.agents/skills`，CLI 会识别出是同一位置并跳过。
+
+- Skill 实际装在 `~/.agents/skills/<skill 名>/`，CLI 按 `-a` 在各客户端目录建链接：Claude Code 是 `~/.claude/skills/`，Copilot 是 `~/.copilot/skills/`，Codex 直接读 `~/.agents/skills/`。（新电脑上第一次安装就会自动建好软链；重复安装，CLI 会识别出是同一位置软链并跳过。）
 
 ## 安装与更新 agent
 
@@ -71,10 +69,8 @@ mkdir -p ~/.copilot
 ln -s ~/WorkSpace/Tommy-skills/copilot/agents ~/.copilot/agents
 ```
 
-- 已有克隆时跳过 `git clone`；克隆在别处时把路径换成实际位置。
-- `~/.copilot/agents` 已经是普通目录时，不要整个替换，改为逐个链接文件：`ln -s ~/WorkSpace/Tommy-skills/copilot/agents/Chat.agent.md ~/.copilot/agents/`。
-- 更新只需在克隆里 `git pull`；新加的 agent 通过目录链接自动生效。
-- 本地克隆就是 agent 的实际来源：删除或移动这个文件夹，`~/.copilot/agents` 的链接会断开，Agent 下拉里的 Chat 会消失。移动后要按新路径重新执行 `ln -s`。这一点和 skill 不同，skill 装好后在 `~/.agents/skills` 里是独立副本，不受克隆影响。
+- 如何更新：只需在克隆里 `git pull`；agent 通过目录链接自动生效。
+- 注意注意⚠️：删除或移动此文件夹，`~/.copilot/agents` 的链接会断开，Agent 下拉里的 Chat 会消失。需重新执行 `ln -s`。
 - 安装后在 VS Code 的 Copilot 模式下打开 Agent 下拉，确认出现 Chat。
 
 ## 文档入口
