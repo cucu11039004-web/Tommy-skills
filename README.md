@@ -76,25 +76,6 @@ ln -s ~/WorkSpace/Tommy-skills/copilot/agents ~/.copilot/agents
 - 更新只需在克隆里 `git pull`；新加的 agent 通过目录链接自动生效。
 - 安装后在 VS Code 的 Copilot 模式下打开 Agent 下拉，确认出现 Chat。
 
-## 目录结构
-
-```
-skills/
-  <分类>/
-    <skill 名>/
-      SKILL.md           # 流程与规则
-      references/        # 模板、范例等按需加载的参考
-      agents/openai.yaml # Codex 列表里的显示名
-copilot/
-  agents/
-    <名称>.agent.md      # VS Code Copilot 模式的自定义 agent
-feishu/
-  skills/
-    <skill 名>/SKILL.md  # 飞书专用 skill，不随一键安装
-  automations/
-    <任务名>.md          # 飞书定时任务的调度与提示词原文
-```
-
 ## 文档入口
 
 | 文档 | 用途 |
