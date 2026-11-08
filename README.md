@@ -15,6 +15,14 @@
 |---|---|---|
 | [Chat](copilot/agents/Chat.agent.md) | 简单问题直接回答，按需查公开网页，不读项目上下文 | VS Code Chat 视图，Session Target 选 Copilot，再在 Agent 下拉中选 Chat |
 
+## 飞书专用 skill
+
+只在飞书（豆包）里使用的 skill，放在仓库作为工作流记录。下面的一键安装命令不会安装它们，需要时在飞书里单独安装；文档 ID、token 等私人标识已替换为占位符。
+
+| Skill | 用途 |
+|---|---|
+| [todo-quick-add](feishu/skills/todo-quick-add/SKILL.md) | 把口述或录音转写里的事项整理成待办，预览确认后写入飞书「To Do List」文档的对应分类 |
+
 ## 安装与更新 skill
 
 安装和更新是同一条命令，作用范围是本仓库的全部 skill：
@@ -56,6 +64,9 @@ skills/
 copilot/
   agents/
     <名称>.agent.md      # VS Code Copilot 模式的自定义 agent
+feishu/
+  skills/
+    <skill 名>/SKILL.md  # 飞书专用 skill，不随一键安装
 ```
 
 ## 文档入口

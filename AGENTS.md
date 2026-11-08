@@ -17,6 +17,7 @@
 - Skill 内容不写死某个智能体的工具名，保证在 Claude Code 与 Codex 下都能跑。
 - 新增或删除 skill 时同步更新 README 的 skill 清单。
 - VS Code Copilot 模式的自定义 agent 放在 `copilot/agents/<名称>.agent.md`，frontmatter 写 `target: github-copilot`，tools 用 Copilot 的工具别名（如 `read`、`search`、`web`）。agent 只服务 Copilot，不受「Skill 内容不写死工具名」那条的限制；新增或删除时同步更新 README 的 agent 清单。
+- 只在飞书（豆包）里用的 skill 放在 `feishu/skills/<skill 名>/SKILL.md`，作为工作流记录，可以写死 `lark-cli` 命令。不能放进 `skills/`，也不能写进 `skills.sh.json`，否则会被一键安装装到 Claude Code / Codex / Copilot。文档 ID、token、租户域名用 `<…>` 占位符代替。用户在飞书更新后发来新版时，覆盖该文件，同时保留占位符。新增或删除时同步更新 README 的「飞书专用 skill」清单。
 - 项目目标与范围由用户决定；需要改变目标或关键取舍时先说明问题，交由用户决定。
 
 ## Git 提交约定
