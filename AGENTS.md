@@ -1,6 +1,6 @@
 # Tommy-skills — 工作环境与协作约定
 
-本文件记录智能体在本仓库工作所需的事实与约定。项目目标、skill 与 agent 清单、安装方式见 [README.md](README.md)。
+本文件记录智能体在本仓库工作所需的事实与约定。项目目标、skill 与 agent 清单、安装方式见 [README.md](README.md)；目录结构与各部分职责见 [CODEBASE_MAP.md](CODEBASE_MAP.md)。
 
 ## 工作环境
 

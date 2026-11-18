@@ -1,8 +1,14 @@
 # Tommy-skills
 
-个人 AI 定制集合：Claude Code / Codex / Copilot 通用的 skill，以及 VS Code Copilot 模式用的自定义 agent。Skill 按 [mattpocock/skills](https://github.com/mattpocock/skills) 的目录结构组织，用 skills.sh 安装与更新。
+> 个人 AI 定制集合：Claude Code / Codex / Copilot 通用的 skill，以及 VS Code Copilot 模式用的自定义 agent，另有飞书（豆包）里用的工作流记录。Skill 按 [mattpocock/skills](https://github.com/mattpocock/skills) 的目录结构组织，用 skills.sh 安装与更新。
+>
+> 把反复用到的工作方式（读论文、讲代码、写文档、整理待办）固化成可安装的 skill，让不同智能体在新电脑上一条命令就能得到同样的行为。
 
-## Skill 清单
+## 本仓库现状
+
+几个通用 skill 和一个 Copilot agent 在日常使用；飞书侧有 skill 和定时任务，作为工作流记录。
+
+### Skill 清单
 
 | Skill | 用途 | 触发方式 |
 |---|---|---|
@@ -10,17 +16,17 @@
 | [code-tour](skills/coding/code-tour/SKILL.md) | vibe coding 完成一次功能升级后，先给这批改动的总览，再按需逐个文件讲职责、结构、新增部分和联动；默认不跑代码 | 仅手动：`/code-tour [文件]`（Codex 用 `$code-tour`）；不带文件时讲最近一批改动 |
 | [writing-for-humans](skills/writing/writing-for-humans/SKILL.md) | 写给人读的文档（README、笔记、说明、CODEBASE_MAP 等）：只写读者会用到的，信息不丢、字数最少、结构清楚；给智能体读的文件用 mattpocock 的 writing-for-agents | 新写或修改这类文档时自动触发；或 `/writing-for-humans` |
 
-## 外部 skill
+### 外部 skill
 
 除本仓库自己的 skill 外，全量安装 [mattpocock/skills](https://github.com/mattpocock/skills)（MIT）。这些 skill 不拷进本仓库，清单以上游为准。
 
-## Agent 清单
+### Agent 清单
 
 | Agent | 用途 | 使用位置 |
 |---|---|---|
 | [Chat](copilot/agents/Chat.agent.md) | 简单问题直接回答，按需查公开网页，不读项目上下文 | VS Code Chat 视图，Session Target 选 Copilot，再在 Agent 下拉中选 Chat |
 
-## 飞书专用 skill
+### 飞书专用 skill
 
 只在飞书（豆包）里使用的 skill，放在仓库作为工作流记录。下面的一键安装命令不会安装它们，需要时在飞书里单独安装；文档 ID、token 等私人标识已替换为占位符。
 
@@ -28,7 +34,7 @@
 |---|---|
 | [todo-quick-add](feishu/skills/todo-quick-add/SKILL.md) | 把口述或录音转写里的事项整理成待办，预览确认后写入飞书「To Do List」文档的对应分类 |
 
-## 飞书自动任务
+### 飞书自动任务
 
 飞书（豆包）里的定时任务，每个任务记录调度时间和提示词原文，链接与 ID 已替换为占位符。时间均为 Asia/Shanghai，均在云电脑运行。
 
@@ -39,7 +45,9 @@
 | [每日文档归档与台账同步](feishu/automations/每日文档归档与台账同步.md) | 每天 06:00 | 把云盘根目录的文档经收件箱归档进文档库，回写《文档审阅台账》并清理快捷方式 |
 | [每日归档已完成事项](feishu/automations/每日归档已完成事项.md) | 每天 06:00 | 把《待办事项》里已勾选的条目加日期搬进《已完成事项》，验证后删源 |
 
-## 安装与更新 skill
+## 如何使用
+
+### 安装与更新 skill
 
 新电脑第一次安装，两条命令各装一个来源的全部 skill：
 
@@ -57,10 +65,9 @@ npx skills@latest add mattpocock/skills -g -a claude-code -a codex -a github-cop
 npx skills@latest update -g -y
 ```
 
-
 - Skill 实际装在 `~/.agents/skills/<skill 名>/`，CLI 按 `-a` 在各客户端目录建链接：Claude Code 是 `~/.claude/skills/`，Copilot 是 `~/.copilot/skills/`，Codex 直接读 `~/.agents/skills/`。（新电脑上第一次安装就会自动建好软链；重复安装，CLI 会识别出是同一位置软链并跳过。）
 
-## 安装与更新 agent
+### 安装与更新 agent
 
 Agent 不经过 skills CLI，通过本仓库的克隆软链到 Copilot 的用户 agent 目录 `~/.copilot/agents/`：
 
@@ -74,9 +81,6 @@ ln -s ~/WorkSpace/Tommy-skills/copilot/agents ~/.copilot/agents
 - 注意注意⚠️：删除或移动此文件夹，`~/.copilot/agents` 的链接会断开，Agent 下拉里的 Chat 会消失。需重新执行 `ln -s`。
 - 安装后在 VS Code 的 Copilot 模式下打开 Agent 下拉，确认出现 Chat。
 
-## 文档入口
+## 许可证
 
-| 文档 | 用途 |
-|---|---|
-| [AGENTS.md](AGENTS.md) | 协作与 Git 提交约定 |
-| [CODEBASE_MAP.md](CODEBASE_MAP.md) | 全局地图：目录结构与各部分职责 |
+MIT，见 [LICENSE](LICENSE)。
